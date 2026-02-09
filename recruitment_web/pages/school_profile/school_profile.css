@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background-color: #aecffd;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 内容 */
+.content-wrapper {
+    padding: 0px 16px 80px 16px;
+}
+
+/* 学校概况容器 */
+.profile-container {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 视频播放区域 */
+.video-section {
+    padding: 22px;
+    background: #ffffff;
+}
+
+.video-container {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #aecffd;
+    border: 2px solid #198efc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+.play-button:active {
+    transform: scale(0.95);
+}
+
+.play-icon {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 12px rgba(74, 144, 226, 0.3));
+}
+
+/* 文字内容区域 */
+.text-content {
+    padding: 0px 22px 22px 22px;
+    background: #ffffff;
+    font-size: clamp(12px, 3.5vw, 13px);
+    line-height: 2;
+    color: #3f3f3f;
+}
+
+.text-content p {
+    /* margin-bottom: 13px; */
+    text-align: justify;
+}
+
+.text-content p.indent {
+    text-indent: 2em;
+}
+
+.text-content p.section-title {
+    font-weight: 600;
+    color: #3f3f3f;
+    text-align: center;
+}
+
+.text-content p.date-note {
+    text-align: center;
+    font-size: clamp(12px, 3vw, 13px);
+    color: #3f3f3f;
+    font-style: italic;
+    text-indent: 0;
+    margin-top: 15px;
+}
+
+/* 响应式设计 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .content-section {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        font-size: 32px;
+    }
+
+    .profile-content {
+        font-size: 16px;
+    }
+}
+
+/* 安全区域适配 (刘海屏) */
+body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}

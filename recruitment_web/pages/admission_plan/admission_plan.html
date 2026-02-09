@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>招生计划 韶关学院招生直通车</title>
+
+    <link rel="stylesheet" href="../../components/hero-banner/hero-banner.css">
+    <link rel="stylesheet" href="admission_plan.css">
+</head>
+<body>
+    <!-- Hero Banner 组件容器 -->
+    <div id="hero-banner-container"></div>
+
+    <!-- 主内容区域 -->
+    <div class="plan-wrapper">
+        <div class="main-content">
+            <!-- 搜索框 -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="搜索">
+                <button class="search-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="11" cy="11" r="6" stroke="#666" stroke-width="2"/>
+                        <path d="M15 15L19 19" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 当前选中省份 -->
+            <div class="selected-province">
+                <h2 id="current-province">广东</h2>
+            </div>
+
+            <!-- 年份和地区标签 -->
+            <div class="filter-section">
+                <div class="filter-item">
+                    <span class="filter-label">年份：</span>
+                    <button class="filter-btn active" data-year="2025">2025</button>
+                </div>
+                <div class="filter-item">
+                    <span class="filter-label">地区：</span>
+                </div>
+            </div>
+
+            <!-- 省份按钮区域 -->
+            <div class="province-buttons">
+                <button class="province-tag active" data-province="广东">广东</button>
+                <button class="province-tag" data-province="北京">北京</button>
+                <button class="province-tag" data-province="天津">天津</button>
+                <button class="province-tag" data-province="河北">河北</button>
+                <button class="province-tag" data-province="山西">山西</button>
+                <button class="province-tag" data-province="内蒙古">内蒙古</button>
+
+                <button class="province-tag" data-province="辽宁">辽宁</button>
+                <button class="province-tag" data-province="吉林">吉林</button>
+                <button class="province-tag" data-province="黑龙江">黑龙江</button>
+                <button class="province-tag" data-province="上海">上海</button>
+                <button class="province-tag" data-province="江苏">江苏</button>
+                <button class="province-tag" data-province="浙江">浙江</button>
+
+                <button class="province-tag" data-province="安徽">安徽</button>
+                <button class="province-tag" data-province="福建">福建</button>
+                <button class="province-tag" data-province="江西">江西</button>
+                <button class="province-tag" data-province="山东">山东</button>
+                <button class="province-tag" data-province="河南">河南</button>
+                <button class="province-tag" data-province="湖北">湖北</button>
+
+                <button class="province-tag" data-province="湖南">湖南</button>
+                <button class="province-tag" data-province="广西">广西</button>
+                <button class="province-tag" data-province="海南">海南</button>
+                <button class="province-tag" data-province="重庆">重庆</button>
+                <button class="province-tag" data-province="四川">四川</button>
+                <button class="province-tag" data-province="贵州">贵州</button>
+
+                <button class="province-tag" data-province="云南">云南</button>
+                <button class="province-tag" data-province="陕西">陕西</button>
+                <button class="province-tag" data-province="甘肃">甘肃</button>
+                <button class="province-tag" data-province="青海">青海</button>
+                <button class="province-tag" data-province="新疆">新疆</button>
+            </div>
+
+            <!-- 内容展示区域 -->
+            <div class="content-display">
+                <div class="placeholder-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admission_plan.js"></script>
+    <script src="../../components/hero-banner/hero-banner.js"></script>
+
+    <!-- 初始化组件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new HeroBannerComponent('hero-banner-container', {
+                imagePath: '../../assets/home/banner.png',
+                imageAlt: '韶关学院',
+                enableWaterDrops: true
+            });
+        });
+    </script>
+</body>
+</html>

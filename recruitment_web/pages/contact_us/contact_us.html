@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>联系我们 韶关学院招生直通车</title>
+
+    <link rel="stylesheet" href="../../components/hero-banner/hero-banner.css">
+    <link rel="stylesheet" href="contact_us.css">
+</head>
+<body>
+    <!-- Hero Banner 组件容器 -->
+    <div id="hero-banner-container"></div>
+
+    <div class="contact-wrapper">
+        
+    </div>
+
+    <script src="../../components/hero-banner/hero-banner.js"></script>
+
+    <!-- 初始化组件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new HeroBannerComponent('hero-banner-container', {
+                imagePath: '../../assets/home/banner.png',
+                imageAlt: '韶关学院',
+                enableWaterDrops: true
+            });
+        });
+    </script>
+</body>
+</html>

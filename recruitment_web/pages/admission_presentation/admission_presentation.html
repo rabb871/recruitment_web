@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>招生宣讲 韶关学院招生直通车</title>
+
+    <link rel="stylesheet" href="../../components/hero-banner/hero-banner.css">
+    <link rel="stylesheet" href="admission_presentation.css">
+</head>
+<body>
+    <!-- Hero Banner 组件容器 -->
+    <div id="hero-banner-container"></div>
+
+    <!-- 招生宣讲内容区域 -->
+    <div class="content-wrapper">
+        <div class="regulations-container">
+            <!-- 招生宣讲列表 -->
+            <div class="regulations-list">
+                <!-- 宣讲项1 -->
+                <div class="regulation-item">
+                    <div class="regulation-content">
+                        <h3 class="regulation-title">线上招生宣讲及答疑安排</h3>
+                    </div>
+                </div>
+
+                <!-- 宣讲项2 -->
+                <div class="regulation-item">
+                    <div class="regulation-content">
+                        <h3 class="regulation-title">线下招生宣讲及咨询会安排（广东省）</h3>
+                    </div>
+                </div>
+
+                <!-- 宣讲项3 -->
+                <div class="regulation-item">
+                    <div class="regulation-content">
+                        <h3 class="regulation-title">线下招生宣讲及咨询会安排（其他省份）</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../components/hero-banner/hero-banner.js"></script>
+    <script src="admission_presentation.js"></script>
+
+    <!-- 初始化组件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new HeroBannerComponent('hero-banner-container', {
+                imagePath: '../../assets/home/banner.png',
+                imageAlt: '韶关学院',
+                enableWaterDrops: true
+            });
+        });
+    </script>
+</body>
+</html>

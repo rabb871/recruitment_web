@@ -1,0 +1,250 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background-color: #66a6ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 响应式设计 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .content-section {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        font-size: 32px;
+    }
+
+    .profile-content {
+        font-size: 16px;
+    }
+}
+
+/* 安全区域适配 (刘海屏) */
+body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    background-color: #a8c9f5;
+}
+
+/* 主内容区域 */
+.plan-wrapper {
+    margin: 0 16px 80px 16px;
+    background-color: #fefefe;
+    border-radius: 13px;
+    padding-bottom: 30px;
+}
+
+.main-content {
+    padding: 20px 16px;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+/* 搜索框 */
+.search-container {
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 5px 45px 5px 15px;
+    border: 2px solid #91c8fc;
+    border-radius: 25px;
+    font-size: 12px;
+    background-color: white;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.search-input::placeholder {
+    color: #3d3d3d;
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 当前选中省份 */
+.selected-province {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 15px 0 2px 0;
+    border-bottom: 1px solid #fde4bf;
+}
+
+.selected-province h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #3d3d3d;
+}
+
+/* 筛选区域 */
+.filter-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-label {
+    font-size: 14px;
+    color: #3d3d3d;
+    font-weight: 500;
+}
+
+.filter-btn {
+    padding: 6px 18px;
+    background-color: #fde4bf;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #3d3d3d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.filter-btn.active {
+    background-color: #fde4bf;
+    font-weight: 500;
+}
+
+/* 省份按钮区域 */
+.province-buttons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.province-tag {
+    padding: 8px 12px;
+    background-color: #fde4bf;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.province-tag:hover {
+    background-color: #fde4bf;
+}
+
+.province-tag.active {
+    background-color: #fde4bf;
+    font-weight: 600;
+}
+
+.province-tag:active {
+    transform: scale(0.97);
+}
+
+/* 内容展示区域 */
+.content-display {
+    background-color: #fde4bf;
+    border-radius: 15px;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.placeholder-text {
+    font-size: 48px;
+    color: #3d3d3d;
+    font-weight: 500;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 480px) {
+    .province-buttons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .province-tag {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
+    .content-display {
+        min-height: 600px;
+    }
+
+    .placeholder-text {
+        font-size: 36px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main-content {
+        padding: 30px;
+    }
+
+    .search-input {
+        font-size: 16px;
+        padding: 14px 50px 14px 18px;
+    }
+
+    .selected-province h2 {
+        font-size: 24px;
+    }
+
+    .filter-label {
+        font-size: 16px;
+    }
+
+    .filter-btn {
+        font-size: 16px;
+        padding: 8px 22px;
+    }
+
+    .province-tag {
+        font-size: 15px;
+        padding: 10px 14px;
+    }
+
+    .content-display {
+        min-height: 1000px;
+    }
+
+    .placeholder-text {
+        font-size: 60px;
+    }
+}

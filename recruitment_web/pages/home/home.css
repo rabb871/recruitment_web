@@ -1,0 +1,1093 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background-color: #66a6ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 顶部校园图片区域 */
+.hero-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 水滴容器 */
+.water-drops {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* 水滴样式 */
+.water-drop {
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow:
+        inset 0 -2px 4px rgba(255, 255, 255, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: dropFall linear forwards;
+}
+
+/* 水滴下落动画 */
+@keyframes dropFall {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scaleY(1);
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) scaleY(1.2);
+    }
+}
+
+.campus-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 60vh;
+    animation: fadeInDown 1s ease-out forwards, breathing 4s ease-in-out 1s infinite;
+    opacity: 0;
+}
+
+/* 图片入场动画 */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 呼吸动画 */
+@keyframes breathing {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* 视频播放区域 */
+.video-section {
+    padding: 16px;
+    margin-top: -10px;
+    position: relative;
+    z-index: 2;
+}
+
+.video-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 13px;
+    padding: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+}
+
+.play-button:active {
+    transform: scale(0.95);
+}
+
+.play-icon {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 12px rgba(74, 144, 226, 0.3));
+}
+
+/* 功能卡片网格区域 */
+.grid-section {
+    padding: 0 16px 16px 16px;
+}
+
+.grid-container {
+    background-color: #fefefe;
+    border-radius: 13px;
+    padding: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* 卡片样式 */
+.grid-item {
+    background: linear-gradient(#6aafff,#82e7fe);
+    border-radius: 13px;
+    padding: 8px;
+    aspect-ratio: 1.6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 大卡片样式 (视频韶院) */
+.grid-item.large-item {
+    grid-row: span 2;
+    aspect-ratio: auto;
+}
+
+.grid-item:active {
+    transform: scale(0.95);
+}
+
+.card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* 视频韶院 - 大卡片,文字左上,图标右下 */
+.card-title1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: #f7fb85;
+    max-width: 60%;
+    font-size: clamp(22px, 5vw, 30px);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+/* 普通卡片 - 单行文字,图标在右侧中间 */
+.card-title {
+    position: absolute;
+    top: 0%;
+    left: -5%;
+    color: #f7fb85;
+    max-width: 45%;
+    font-size: clamp(14px, 3.8vw, 18px);
+    font-weight: 600;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    white-space: nowrap;  /* 单行显示 */
+}
+
+/* 视频韶院 - 图标在右下角 */
+.large-item .card-icon {
+    position: absolute;
+    bottom: -5%;
+    right: -5%;
+    width: 80%;
+    z-index: 1;
+}
+
+/* 普通卡片 - 图标在右侧中间 */
+.card-icon {
+    position: absolute;
+    /* top: 50%; */
+    /* right: 10px; */
+    right: -10%;
+    bottom: -25%;
+    width: 60%;
+    z-index: 1;
+}
+
+.icon-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* 招生宣讲及咨询会 - 特殊处理,文字两行 */
+.multiline-title {
+    white-space: normal !important;  /* 允许换行 */
+    max-width: 80% !important;
+    line-height: 1.25 !important;
+    font-size: clamp(14px, 3.5vw, 18px) !important;
+}
+
+/* 响应式设计 - 超小屏幕 */
+@media screen and (max-width: 360px) {
+    .video-section,
+    .grid-section {
+        padding: 15px;
+    }
+
+    .video-container,
+    .grid-container {
+        padding: 15px;
+    }
+
+    .grid-container {
+        gap: 12px;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .grid-item {
+        padding: 12px;
+    }
+}
+
+/* 响应式设计 - 小屏幕 */
+@media screen and (min-width: 361px) and (max-width: 400px) {
+    .grid-container {
+        gap: 13px;
+    }
+}
+
+/* 响应式设计 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .hero-section {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .video-section,
+    .grid-section {
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid-item {
+        padding: 20px;
+    }
+}
+
+/* 横屏适配 */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .campus-image {
+        max-height: 40vh;
+    }
+
+    .video-section {
+        padding: 15px;
+        margin-top: -20px;
+    }
+
+    .grid-section {
+        padding: 15px 20px 20px;
+    }
+}
+
+/* 触摸反馈优化 */
+@media (hover: none) and (pointer: coarse) {
+    .grid-item:hover {
+        transform: none;
+    }
+
+    .play-button:hover {
+        transform: none;
+    }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(180deg, #2C5282 0%, #2B6CB0 100%);
+    }
+}
+
+/* 加载动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid-item {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.grid-item:nth-child(1) { animation-delay: 0.05s; }
+.grid-item:nth-child(2) { animation-delay: 0.1s; }
+.grid-item:nth-child(3) { animation-delay: 0.15s; }
+.grid-item:nth-child(4) { animation-delay: 0.2s; }
+.grid-item:nth-child(5) { animation-delay: 0.25s; }
+.grid-item:nth-child(6) { animation-delay: 0.3s; }
+.grid-item:nth-child(7) { animation-delay: 0.35s; }
+.grid-item:nth-child(8) { animation-delay: 0.4s; }
+
+/* 安全区域适配 (刘海屏) */
+body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+/* ==================== 内容区域样式 ==================== */
+
+/* 内容区域容器 */
+.content-section {
+    padding: 0 16px 16px 16px;
+    padding-bottom: 16px;
+}
+
+.content-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 13px;
+    padding: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* 分类块 */
+.category-block {
+    margin-bottom: 5px;
+}
+
+.category-block:last-child {
+    margin-bottom: 0;
+}
+
+/* 分类标题 */
+.category-title {
+    font-size: clamp(22px, 4vw, 26px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #183d8a;
+    /* margin-bottom: 12px; */
+    position: relative;
+    box-sizing: border-box;
+    font-family: "FZDBSJW";
+    padding-left: 10px;
+}
+
+.title-name {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0;
+}
+
+.title-background {
+    position: absolute;
+    bottom: 3px;
+    left: 0px;
+    width: 75%;  /* 宽度占容器70% */
+    height: 40%;  /* 高度占文字的50% */
+    background: linear-gradient(90deg, #fbd1ba 0%, #f9cfa7 100%);
+    z-index: 1;
+}
+
+/* 印象韶院 - 每行4个,分两行 */
+.category-content1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.line1,
+.line2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+}
+
+/* 数说韶院、学科专业 - 一行4个 */
+.category-content2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+}
+
+/* 政策解读，三个，两个，两行 */
+.category-content3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.line3-1{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+}
+
+.line3-2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+}
+
+/* 广东省招生类型 - 使用4列网格,每个标签占2列 */
+.category-content4 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.line4-1,
+.line4-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4列基础网格,与学科专业对齐 */
+    gap: 10px;
+}
+
+/* 让每个标签占2列 */
+.line4-1 .tag-item,
+.line4-2 .tag-item {
+    grid-column: span 2;  /* 每个标签跨越2列 */
+}
+
+/* 港澳台招生类型 */
+.category-content5 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.line5-1,
+.line5-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 10px;
+}
+
+
+/* 标签项 */
+.tag-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 0px;
+    font-size: clamp(12px, 3.2vw, 15px);
+    color: #01429d;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    justify-content: flex-start;
+    font-family: "Adobe Heiti Std";
+}
+
+/* 标签前的圆点 */
+.tag-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(90deg, #f6e4e3 0%, #fcbbb7 100%);
+    border-radius: 50%;
+    margin-right: 5px;
+    flex-shrink: 0;
+}
+
+/* 标签悬停效果 */
+/* .tag-item:active {
+    transform: scale(0.98);
+    color: #2d5a8f;
+    font-weight: 600;
+}
+
+.tag-item:active::before {
+    background: #2d5a8f;
+} */
+
+/* 响应式调整 - 超小屏幕 */
+@media screen and (max-width: 360px) {
+    .content-section {
+        padding: 15px;
+    }
+
+    .content-container {
+        padding: 15px;
+    }
+
+    .category-block {
+        margin-bottom: 15px;
+    }
+
+    /* 小屏幕改为3列 */
+    .line1,
+    .line2,
+    .category-content2 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .tag-item {
+        padding: 5px 6px;
+        font-size: 11px;
+    }
+
+    .tag-item::before {
+        width: 5px;
+        height: 5px;
+        margin-right: 4px;
+    }
+}
+
+/* 响应式调整 - 中等屏幕 */
+@media screen and (min-width: 361px) and (max-width: 400px) {
+    .line1,
+    .line2,
+    .category-content2 {
+        gap: 10px;
+    }
+}
+
+/* 响应式调整 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .content-section {
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .category-title {
+        font-size: 20px;
+    }
+
+    .tag-item {
+        font-size: 15px;
+        padding: 8px 10px;
+    }
+
+    .tag-item::before {
+        width: 7px;
+        height: 7px;
+        margin-right: 8px;
+    }
+
+    .line1,
+    .line2,
+    .category-content2 {
+        gap: 15px;
+    }
+
+    .category-content1,
+    .tag-content {
+        gap: 12px;
+    }
+}
+
+/* 横屏适配 */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .content-section {
+        padding: 15px 20px;
+    }
+
+    .category-block {
+        margin-bottom: 15px;
+    }
+}
+
+/* ==================== 学院概况区域 ==================== */
+
+.college-section {
+    padding: 0px 16px;
+    padding-bottom: 16px;
+}
+
+.school-situation {
+    position: relative;
+    width: 100%;
+
+}
+
+.situation-title {
+    position: relative;
+    font-size: clamp(22px, 5vw, 26px);
+    font-weight: 700;
+    color: #243a94;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "FZDBSJW";
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.situation-background img {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    border-radius: 13px;
+    object-fit: cover;
+    z-index: 1;
+
+}
+
+.college-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+/* 学院项 */
+.college-item {
+    background: white;
+    border-radius: 13px;
+    overflow: visible;  /* 允许背景溢出 */
+    transition: all 0.3s ease;
+    position: relative;  /* 作为定位参考 */
+
+}
+
+/* 学院头部 */
+.college-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    overflow: visible;  /* 允许内容溢出 */
+}
+
+.college-title {
+    position: relative;
+    display: flex;
+    /* display: inline-block; */
+    width: 72%;
+    padding-left: 10px;  /* 与内容区域标题对齐 */
+}
+
+.college-name {
+    /* position: relative; */
+    z-index: 2;
+    /* display: inline-block; */
+    font-size: clamp(19px, 4vw, 21px);
+    font-weight: 600;
+    color: #2d5a8f;
+    padding: 0;
+    letter-spacing: 2px;
+    flex-wrap: nowrap;
+}
+
+.college-background {
+    position: relative;
+    left: -5px;
+    /* position: relative; */
+    background-size: 68%;  /* 图片占容器的70%，让图片显示得小一点 */
+    background-repeat: no-repeat;
+    background-position: center;  /* 居中显示图片 */
+    z-index: 1;
+    width: 30px;  /* 圆形边框宽度 */
+    height: 30px;  /* 圆形边框高度 */
+    border-radius: 50%;
+    border: 1px solid #fcc58a;
+
+    flex-shrink: 0;  /* 防止被压缩 */
+}
+
+.expand-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: #243a94;
+    font-weight: 600;
+    font-size: clamp(13px, 3.5vw, 15px);
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.expand-btn:active {
+    transform: scale(0.95);
+}
+
+.expand-icon {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+}
+
+/* 折叠状态 - 旋转180度 */
+.expand-icon.collapsed-icon {
+    transform: rotate(180deg);
+}
+
+/* 学院内容区 */
+.college-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0px 8px;  /* 折叠时上下padding为0 */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* margin-top: 8px; */
+}
+
+.college-content.expanded {
+    max-height: 1000px;
+    padding: 0px 8px;  /* 展开时四周都有padding */
+}
+
+/* 功能网格 */
+.college-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 10px 0px;
+}
+
+.college-function {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 0px;
+    /* background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%); */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1); */
+}
+
+.college-function:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 100%);
+}
+
+.function-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.function-name {
+    font-size: clamp(13px, 3vw, 15px);
+    color: #01429d;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+/* 响应式 - 超小屏幕 */
+@media screen and (max-width: 360px) {
+    .college-section {
+        padding: 15px;
+    }
+
+    .college-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .college-function {
+        padding: 12px 8px;
+    }
+
+    .function-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .college-header {
+        padding: 12px 15px;
+    }
+}
+
+/* 响应式 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .college-section {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .college-grid {
+        gap: 20px;
+    }
+
+    .function-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .function-name {
+        font-size: 14px;
+    }
+}
+
+/* 横屏适配 */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .college-section {
+        padding: 15px 20px 30px;
+    }
+
+    .college-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+/* ==================== 快速通道区域 ==================== */
+.quick-links-section {
+    padding: 0px 16px 40px 16px;
+}
+
+.quick-links-container {
+    background: #ffffff;
+    border-radius: 13px;
+    padding: 25px 20px;
+}
+
+.quick-links-title {
+    font-size: clamp(24px, 4vw, 28px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #183d8a;
+    /* margin-bottom: 12px; */
+    position: relative;
+    box-sizing: border-box;
+    font-family: "FZDBSJW";
+    padding-left: 10px;
+}
+
+.quick-links-name {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0;
+}
+
+.quick-links-background {
+    position: absolute;
+    bottom: 3px;
+    left: 0px;
+    width: 75%;  /* 宽度占容器70% */
+    height: 40%;  /* 高度占文字的50% */
+    background: linear-gradient(90deg, #fbd1ba 0%, #f9cfa7 100%);
+    z-index: 1;
+}
+
+.quick-links-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px 0px;
+}
+
+.links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px;
+    border-radius: 10px;
+    color: #01429d;
+    font-size: clamp(12px, 3.5vw, 14px);
+    font-weight:540;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 0px;
+}
+
+.link-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(90deg, #f6e4e3 0%, #fcbbb7 100%);
+    border-radius: 50%;
+    margin-right: 5px;
+    flex-shrink: 0;
+}
+
+.link-item:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #e0f0ff 0%, #f0f8ff 100%);
+}
+
+.link-item1 {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px;
+    border-radius: 10px;
+    color: #01429d;
+    font-size: clamp(12px, 3.5vw, 14px);
+    font-weight: 540;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 0px;
+}
+
+.link-item1::before {
+    position: relative;
+    top: -8px;
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(90deg, #f6e4e3 0%, #fcbbb7 100%);
+    border-radius: 50%;
+    margin-right: 5px;
+    flex-shrink: 0;
+}
+
+.link-item1:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #e0f0ff 0%, #f0f8ff 100%);
+}
+
+/* 响应式 - 超小屏幕 */
+@media screen and (max-width: 360px) {
+    .quick-links-section {
+        padding: 20px 15px 30px;
+    }
+
+    .quick-links-container {
+        padding: 20px 15px;
+    }
+
+    .quick-links-content {
+        gap: 12px 15px;
+    }
+
+    .link-item {
+        padding: 10px 12px;
+        padding-left: 28px;
+        font-size: 13px;
+    }
+}
+
+/* 响应式 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .quick-links-section {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .quick-links-content {
+        gap: 18px 25px;
+    }
+
+    .link-item {
+        font-size: 15px;
+        padding: 14px 18px;
+        padding-left: 35px;
+    }
+
+    .link-item:hover {
+        transform: translateX(5px);
+        background: linear-gradient(135deg, #e0f0ff 0%, #f0f8ff 100%);
+        box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15);
+    }
+}
+
+/* ==================== 页脚区域 ==================== */
+.footer {
+    background: #055ac5;
+    padding: 20px 15px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.footer-copyright,
+.footer-address,
+.footer-contact {
+    font-size: clamp(11px, 3.5vw, 13px);
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.footer-copyright {
+    font-weight: 500;
+}
+
+/* 响应式 - 超小屏幕 */
+@media screen and (max-width: 360px) {
+    .footer {
+        padding: 25px 15px;
+    }
+
+    .footer-content {
+        gap: 10px;
+    }
+}
+
+/* 响应式 - 大屏幕 */
+@media screen and (min-width: 768px) {
+    .footer {
+        padding: 35px 20px;
+    }
+
+    .footer-content {
+        gap: 15px;
+    }
+
+    .footer-copyright,
+    .footer-address,
+    .footer-contact {
+        font-size: 15px;
+    }
+}

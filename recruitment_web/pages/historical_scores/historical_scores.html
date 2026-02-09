@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>历年分数 韶关学院招生直通车</title>
+
+    <link rel="stylesheet" href="../../components/hero-banner/hero-banner.css">
+    <link rel="stylesheet" href="historical_scores.css">
+</head>
+<body>
+    <!-- Hero Banner 组件容器 -->
+    <div id="hero-banner-container"></div>
+
+    <!-- 省份选择区域 -->
+    <div class="province-section">
+        <div class="province-container">
+            <div class="province-grid">
+                <button class="province-btn" data-province="新疆">新疆</button>
+                <button class="province-btn" data-province="青海">青海</button>
+                <button class="province-btn" data-province="甘肃">甘肃</button>
+                <button class="province-btn" data-province="陕西">陕西</button>
+                <button class="province-btn" data-province="云南">云南</button>
+                <button class="province-btn" data-province="贵州">贵州</button>
+                <button class="province-btn" data-province="四川">四川</button>
+                <button class="province-btn" data-province="重庆">重庆</button>
+                <button class="province-btn" data-province="海南">海南</button>
+                <button class="province-btn" data-province="广西">广西</button>
+                <button class="province-btn" data-province="湖南">湖南</button>
+                <button class="province-btn" data-province="湖北">湖北</button>
+                <button class="province-btn" data-province="山东">山东</button>
+                <button class="province-btn" data-province="河南">河南</button>
+                <button class="province-btn" data-province="江西">江西</button>
+                <button class="province-btn" data-province="福建">福建</button>
+                <button class="province-btn" data-province="安徽">安徽</button>
+                <button class="province-btn" data-province="浙江">浙江</button>
+                <button class="province-btn" data-province="江苏">江苏</button>
+                <button class="province-btn" data-province="上海">上海</button>
+                <button class="province-btn" data-province="辽宁">辽宁</button>
+                <button class="province-btn" data-province="吉林">吉林</button>
+                <button class="province-btn" data-province="黑龙江">黑龙江</button>
+                <button class="province-btn" data-province="山西">山西</button>
+                <button class="province-btn" data-province="内蒙古">内蒙古</button>
+                <button class="province-btn" data-province="河北">河北</button>
+                <button class="province-btn" data-province="天津">天津</button>
+                <button class="province-btn" data-province="北京">北京</button>
+                <button class="province-btn" data-province="广东">广东</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="historical_scores.js"></script>
+    <script src="../../components/hero-banner/hero-banner.js"></script>
+
+    <!-- 初始化组件 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new HeroBannerComponent('hero-banner-container', {
+                imagePath: '../../assets/home/banner.png',
+                imageAlt: '韶关学院',
+                enableWaterDrops: true
+            });
+        });
+    </script>
+</body>
+</html>
